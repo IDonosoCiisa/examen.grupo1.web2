@@ -1,0 +1,297 @@
+{
+	"info": {
+		"_postman_id": "92898430-f01e-4974-8c9c-3f925c75c4b6",
+		"name": "Album Management API",
+		"description": "Collection to test Album Management API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "16007854"
+	},
+	"item": [
+		{
+			"name": "Create Album",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"nombre\": \"Album 1\",\n  \"fechaLanzamiento\": \"2023-10-01\",\n  \"tipoLaminas\": \"Tipo A\",\n  \"cantidadLaminas\": 10,\n  \"laminas\": [\n    {\n      \"numero\": 0,\n      \"imagen\": \"imagen0.jpg\",\n      \"cantidad\": 1\n    },\n    {\n      \"numero\": 1,\n      \"imagen\": \"imagen1.jpg\",\n      \"cantidad\": 2\n    }\n  ]\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/albums",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"albums"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Albums",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/albums",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"albums"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Album By ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/albums/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"albums",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Album",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"nombre\": \"Updated Album\",\n  \"fechaLanzamiento\": \"2023-11-01\",\n  \"tipoLaminas\": \"Tipo B\",\n  \"cantidadLaminas\": 12,\n  \"laminas\": [\n    {\n      \"numero\": 0,\n      \"imagen\": \"imagen0_updated.jpg\",\n      \"cantidad\": 1\n    },\n    {\n      \"numero\": 1,\n      \"imagen\": \"imagen1_updated.jpg\",\n      \"cantidad\": 2\n    }\n  ]\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/albums/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"albums",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Album",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/albums/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"albums",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Lamina",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"numero\": 2,\n  \"imagen\": \"imagen2.jpg\",\n  \"cantidad\": 1,\n  \"album\": {\n    \"id\": 1\n  }\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/laminas",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"laminas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Laminas",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/laminas",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"laminas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Lamina By ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/laminas/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"laminas",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Lamina",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"numero\": 2,\n  \"imagen\": \"imagen2_updated.jpg\",\n  \"cantidad\": 2,\n  \"album\": {\n    \"id\": 1\n  }\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/laminas/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"laminas",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Lamina",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/laminas/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"laminas",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Laminas Faltantes",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/laminas/faltantes/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"laminas",
+						"faltantes",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Laminas Repetidas",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/laminas/repetidas/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"laminas",
+						"repetidas",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
