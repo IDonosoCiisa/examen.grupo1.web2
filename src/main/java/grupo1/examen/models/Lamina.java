@@ -9,14 +9,13 @@ import jakarta.persistence.*;
 public class Lamina {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @JsonIgnore
     private Long id;
     @Nullable
     private String imagen;
     private int cantidad;
     private int numero;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.MERGE)
     @JsonBackReference
     @JoinColumn(name = "album_id")
     private Album album;

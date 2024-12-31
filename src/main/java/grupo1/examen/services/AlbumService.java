@@ -22,11 +22,28 @@ public class AlbumService {
         return albumRepository.findAll();
     }
 
+    public Album getAlbumById(Long id) {
+        return albumRepository.findById(id).orElseThrow(() -> new RuntimeException("Album not found"));
+    }
+
     public Album saveAlbum(Album album) {
         List<Lamina> laminas = getLaminaList(album);
         album.setLaminas(laminas);
-
         return albumRepository.save(album);
+    }
+
+    public Album updateAlbum(Long id, Album albumDetails) {
+        Album album = getAlbumById(id);
+        album.setNombre(albumDetails.getNombre());
+        album.setFechaLanzamiento(albumDetails.getFechaLanzamiento());
+        album.setTipoLaminas(albumDetails.getTipoLaminas());
+        album.setCantidadLaminas(albumDetails.getCantidadLaminas());
+        album.setLaminas(getLaminaList(albumDetails));
+        return albumRepository.save(album);
+    }
+
+    public void deleteAlbum(Long id) {
+        albumRepository.deleteById(id);
     }
 
     private static List<Lamina> getLaminaList(Album album) {
@@ -34,7 +51,7 @@ public class AlbumService {
                 .collect(Collectors.toMap(Lamina::getNumero, lamina -> lamina));
 
         List<Lamina> laminas = new ArrayList<>();
-        for (int i = 0; i < album.getCantidadLaminas(); i++) {
+        for (int i = 1; i < album.getCantidadLaminas()+1; i++) {
             Lamina lamina = laminaMap.getOrDefault(i, new Lamina());
             lamina.setAlbum(album);
             lamina.setNumero(i);
